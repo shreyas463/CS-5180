@@ -41,7 +41,7 @@ for doc in documents:
     stemmed_words = apply_stemming(words)
     processed_documents.append(stemmed_words)
 
-print("Processed Documents:", processed_documents)
+print("Final Documents are:", processed_documents)
 
 # Step 4: Identifying the index terms (vocabulary)
 terms = ['love', 'cat', 'dog']  # Fixed order of terms
@@ -66,7 +66,7 @@ def compute_idf(term):
 # Print IDF values for debugging
 for term in terms:
     idf = compute_idf(term)
-    print(f"IDF for {term}: {idf:.3f}")
+    print(f"IDF for {term}: {idf:.4f}")
 
 # Constructing the TF-IDF matrix
 docTermMatrix = []
@@ -80,7 +80,7 @@ for doc in processed_documents:
     docTermMatrix.append(tfidf_values)
 
 # Step 6: Printing the document-term matrix
-print("\nTF-IDF Document-Term Matrix:")
+print("------------Document Term Matrix------------")
 print(f"{'':<15}{'love':<10}{'cat':<10}{'dog':<10}")  # Term headers
 for idx, doc_label in enumerate(['d1', 'd2', 'd3']):
     row = [f"{doc_label:<15}"] + \
