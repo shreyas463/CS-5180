@@ -1,3 +1,10 @@
+# -------------------------------------------------------------------------
+# AUTHOR: Shreyas Chaudhary
+# FILENAME: indexing.py
+# SPECIFICATION: Calculates document-term matrix for collection.csv dataset
+# FOR: CS 5180- Assignment #1
+# TIME SPENT: 2 days
+# -----------------------------------------------------------*/
 import csv
 import math
 from collections import Counter
@@ -11,7 +18,7 @@ with open('collection.csv', 'r') as csvfile:
         # Assuming the document text is in the first column
         documents.append(row[0])
 
-# Step 1: Conducting stopword removal for pronouns/conjunctions
+# Step 1: Conducting stopword removal for pronouns and conjunctions
 stopWords = {"i", "she", "he", "they", "her",
              "their", "and", "is", "the", "a", "an"}
 
@@ -21,7 +28,7 @@ def remove_stopwords(doc):
     return [word for word in words if word not in stopWords]
 
 
-# Step 2: Conducting stemming (a very simple stemming for this example)
+# Step 2: Conducting stemming
 stemming = {
     "cats": "cat",
     "dogs": "dog",
