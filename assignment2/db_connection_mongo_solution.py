@@ -1,3 +1,5 @@
+# db_connection_mongo.py
+
 from pymongo import MongoClient
 from collections import defaultdict
 
@@ -82,7 +84,10 @@ def getIndex(col):
                 inverted_index[term][doc_title] = 1
 
     # Sorting the inverted index by term
-    sorted_index = {term: dict(sorted(docs.items()))
-                    for term, docs in sorted(inverted_index.items())}
+    sorted_index = {}
+    for term in sorted(inverted_index.keys()):
+        doc_counts = ', '.join(
+            [f"{doc}: {count}" for doc, count in sorted(inverted_index[term].items())])
+        sorted_index[term] = doc_counts
 
     return sorted_index
