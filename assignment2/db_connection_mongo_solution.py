@@ -8,7 +8,7 @@ from collections import defaultdict
 
 def connectDataBase():
     DB_NAME = "CPP"
-    DB_HOST = "localhost"s
+    DB_HOST = "localhost"
     DB_PORT = 27017
 
     try:
