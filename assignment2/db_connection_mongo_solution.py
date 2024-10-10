@@ -8,7 +8,7 @@ from collections import defaultdict
 
 def connectDataBase():
     DB_NAME = "CPP"
-    DB_HOST = "localhost"s
+    DB_HOST = "localhost"
     DB_PORT = 27017
 
     try:
@@ -78,11 +78,16 @@ def getIndex(col):
 
         # Building the inverted index
         for term in terms:
-            if doc_title in inverted_][doc_title] += 1
+            if doc_title in inverted_index[term]:
+                inverted_index[term][doc_title] += 1
             else:
-                                inverted_index[term][doc_title] = 1
+                inverted_index[term][doc_title] = 1
 
-                # Sorting the inverted index by term
-ndex.keys()):
-        doc_councount in sorted(inverted_index[term].items())])
-    sorted_index[term]= doc_countsx
+    # Sorting the inverted index by term
+    sorted_index = {}
+    for term in sorted(inverted_index.keys()):
+        doc_counts = ', '.join(
+            [f"{doc}: {count}" for doc, count in sorted(inverted_index[term].items())])
+        sorted_index[term] = doc_counts
+
+    return sorted_index
