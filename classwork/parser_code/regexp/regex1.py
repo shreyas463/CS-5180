@@ -10,14 +10,11 @@ bs = BeautifulSoup(html, 'html.parser')
 #     print(image['src'])
 #     print(image.get('src'))
 
-images = bs.find_all('img',{'src':re.compile('\.\./img/gifts/img.*\.jpg')})
+# images = bs.find_all('img',{'src':re.compile('\.\./img/gifts/img.*\.jpg')})
+# corrected code
+
+images = bs.find_all('img', {'src': re.compile(r'\.\./img/gifts/img.*\.jpg')})
+
 for image in images:
     print(image['src'])
     print(image.get('src'))
-
-
-
-
-
-
-
