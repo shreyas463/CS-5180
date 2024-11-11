@@ -47,37 +47,37 @@ html_content = """<!DOCTYPE html>
 # ANSWER FOR A
 
 # Parsing and printing title in a single line
-# print(BeautifulSoup(html_content, 'html.parser').title.text)
+print(BeautifulSoup(html_content, 'html.parser').title.text)
 
 # ANSWER FOR B
 
 # Parsing and printing the second list item within the nested <ol> in a single line
-# print(BeautifulSoup(html_content, 'html.parser').find_all(
-#     'ol')[0].find_all('li')[1].text)
+print(BeautifulSoup(html_content, 'html.parser').find_all(
+    'ol')[0].find_all('li')[1].text)
 
 # ANSWER FOR C
 
 # Parsing and printing all <td> tags in the first <tr> of the table in a single line!,
-# print([td.text for td in BeautifulSoup(html_content, 'html.parser').find(
-#     'table').find_all('tr')[0].find_all('td')])
+print([td.text for td in BeautifulSoup(html_content, 'html.parser').find(
+    'table').find_all('tr')[0].find_all('td')])
 
 # ANSWER FOR D
 
 #  Parsing and printing all <h2> headings text that include the word "tutorial" using regex in a single line
-# print([h2.text for h2 in BeautifulSoup(html_content, 'html.parser').find_all(
-#     'h2', string=re.compile(r'tutorial'))])
+print([h2.text for h2 in BeautifulSoup(html_content, 'html.parser').find_all(
+    'h2', string=re.compile(r'tutorial'))])
 
 # ANSWER FOR E
 
 # Parsing and printing all text that includes the "HTML" word
-# print([text for text in BeautifulSoup(html_content,
-#       'html.parser').find_all(string=re.compile(r'HTML'))])
+print([text for text in BeautifulSoup(html_content,
+      'html.parser').find_all(string=re.compile(r'HTML'))])
 
 # ANSWER FOR F
 
 # Parsing and printing all text in the second <tr> of the table
-# print([td.text for td in BeautifulSoup(html_content, 'html.parser').find(
-#     'table').find_all('tr')[1].find_all('td')])
+print([td.text for td in BeautifulSoup(html_content, 'html.parser').find(
+    'table').find_all('tr')[1].find_all('td')])
 
 
 # ANSWER FOR G
