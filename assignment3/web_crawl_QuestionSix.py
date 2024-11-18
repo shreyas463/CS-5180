@@ -79,7 +79,7 @@ processed_emails = set()
 for name_tag in h2_tags:
     name = name_tag.get_text(strip=True)
 
-    # Initialize variables
+    # Initialize vthe variables
     title = office = phone = email = website = None
 
     # The details are in the following <p> tag
@@ -107,14 +107,13 @@ for name_tag in h2_tags:
             f"Missing critical information for a faculty member ({name}). Skipping.")
         continue
 
-    # Check for duplicates in the current run
+    # Checking for duplicates
     if email in processed_emails:
         print(f"Duplicate email found in HTML for {
               name} ({email}). Skipping duplicate.")
         continue
     processed_emails.add(email)
 
-    # Create a dictionary with the data
     professor_data = {
         'name': name,
         'title': title,
@@ -124,21 +123,20 @@ for name_tag in h2_tags:
         'website': website
     }
 
-    # Insert into MongoDB with error handling for duplicates
+    # Inserting into MongoDB with error handling for duplicates
     try:
         professors_collection.insert_one(professor_data)
-        print(f"Inserted professor: {name}")
-        # Optional: Print extracted data for verification
+        print(f"Displayed professor: {name}")
         print(f"Name: {name}")
         print(f"Title: {title}")
         print(f"Office: {office}")
         print(f"Phone: {phone}")
         print(f"Email: {email}")
         print(f"Website: {website}")
-        print("---")
+        print("------------------------")
     except pymongo.errors.DuplicateKeyError:
         print(f"Professor with email {
               email} already exists in MongoDB. Skipping.")
 
-# Optional: Print the total number of unique professors inserted
-print(f"Total unique professors inserted: {len(processed_emails)}")
+# displaying the total number of unique professors inserted
+print(f"Total unique professors found: {len(processed_emails)}")
